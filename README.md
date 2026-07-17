@@ -1,76 +1,82 @@
 # Continufy
 
-Continufy is an AI-native engineering ecosystem for building scientific instruments that improve how software is understood, researched, analyzed, and governed.
+Continufy is the umbrella identity for a family of independent research and engineering projects focused on software understanding, scientific instrumentation, structural analysis, and execution legitimacy.
 
-Rather than treating software engineering only as the practice of building software, Continufy focuses on producing reusable instruments that generate higher-quality observations, evidence, formal knowledge, and engineering decisions.
+It does not operate the projects, define their internal authority, or collapse them into one runtime. Each repository remains independently scoped and owns its own artifacts, methods, decisions, and boundaries.
 
-## Knowledge Pipeline
+## Purpose
+
+Continufy provides a shared home for projects exploring a broader progression:
 
 ```text
 Reality
         ↓
-Observations
-        ↓
-Abstractions
+Understanding
         ↓
 Evidence
         ↓
 Theory
         ↓
-Deterministic Analysis
+Analysis
         ↓
-Execution Legitimacy
+Trusted Action
 ```
 
-## Repository Responsibilities
+This progression is descriptive rather than executable. No artifact advances automatically, and no repository gains authority over another merely by appearing earlier in the sequence.
 
-- **MindShift** transforms observations into transferable abstractions.
-- **Architectural Boundary Research** conducts empirical investigations and produces research evidence.
-- **Research Methodology** defines reusable research contracts, objects, and investigation workflows.
-- **Structology** studies domain-independent structural objects, relations, boundaries, transitions, and invariants.
-- **Structural Analysis Foundations** develops formal structural theory.
-- **SYNAPSE** transforms topology into deterministic structural evidence.
-- **ContinuityOS** governs execution legitimacy.
+## Projects
 
-## Core Principle
+- **MindShift** — a non-operational instrument for transforming observations into transferable abstractions.
+- **Research Methodology** — reusable contracts and principles for conducting rigorous research.
+- **Architectural Boundary Research** — empirical investigation of recurring architectural patterns and boundaries.
+- **Structology** — domain-neutral study of objects, relations, boundaries, transitions, contexts, and invariants.
+- **Structural Analysis Foundations** — formal definitions, theory, and canonical research objects for structural analysis.
+- **SYNAPSE** — deterministic structural analysis that transforms topology into reproducible structural evidence.
+- **ContinuityOS** — legitimacy infrastructure for determining whether proposed actions are eligible to execute.
+
+## Shared Direction
+
+The projects share an interest in building reusable instruments rather than only producing isolated outputs.
 
 ```text
-Do not optimize only for producing research.
-
-Build instruments that produce reproducible research artifacts.
+Question
+        ↓
+Instrument
+        ↓
+Artifacts
+        ↓
+Evidence or Models
+        ↓
+Review
+        ↓
+Improved Understanding
 ```
 
-Each repository has a distinct responsibility and exchanges artifacts rather than authority.
+Each project specializes this pattern differently. Continufy provides the umbrella narrative, while responsibility remains local to each repository.
+
+## Boundary Principle
 
 ```text
-MindShift
-Candidate Abstractions
-        ↓
-Architectural Boundary Research
-Empirical Evidence
-        ↓
-Structural Analysis Foundations
-Formal Theory
-        ↓
-SYNAPSE
-Deterministic Structural Evidence
-        ↓
-ContinuityOS
-Execution Legitimacy
+Shared Identity
+≠
+Shared Authority
 ```
 
-## Long-Term Objective
+```text
+Artifact Exchange
+≠
+Repository Control
+```
 
-Continufy aims to create reusable scientific instruments that repeatedly produce trustworthy engineering knowledge, enabling:
+```text
+Umbrella
+≠
+Runtime
+```
 
-- better understanding of complex software systems;
-- reproducible software-engineering research;
-- traceable progression from observations to evidence and theory;
-- deterministic structural analysis;
-- higher-confidence engineering decisions;
-- governed transitions from capability to real-world action.
+Continufy does not authorize research conclusions, formal theory, structural results, or execution. Those determinations remain with the repositories and review boundaries that own them.
 
-## Foundational Boundaries
+## Core Determinations
 
 ```text
 Training ≠ Instructions
@@ -85,22 +91,22 @@ Visibility ≠ Legitimacy
 
 AI output is never executable by itself.
 
-## Current Direction
+## Long-Term View
 
-Continufy is evolving from a collection of repositories into a coordinated research and engineering system:
+Continufy exists to make the relationship between these projects understandable without erasing their independence.
+
+The umbrella connects:
 
 ```text
-Repository
+Higher-Quality Abstractions
         ↓
-Research Instrument
+More Rigorous Research
         ↓
-Research Artifacts
+Formal Structural Knowledge
         ↓
-Scientific Claims
+Deterministic Structural Evidence
         ↓
-Engineering Knowledge
-        ↓
-Better Systems
+Better-Governed Engineering Systems
 ```
 
-The objective is not simply to build more software. It is to build the instruments that make future understanding, research, analysis, and governed execution more rigorous and reusable.
+The value of the umbrella is coherence, not control.
