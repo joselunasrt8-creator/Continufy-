@@ -109,4 +109,20 @@ Deterministic Structural Evidence
 Better-Governed Engineering Systems
 ```
 
+The long-term development path is:
+
+```text
+Research
+        ↓
+Scientific Instruments
+        ↓
+Validated Technologies
+        ↓
+Developer Platform
+        ↓
+Enterprise Products
+```
+
+This path is aspirational rather than automatic. Each transition depends on evidence, validation, independent review, and demonstrated value.
+
 The value of the umbrella is coherence, not control.
