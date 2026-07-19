@@ -1,5 +1,10 @@
 # Continufy
 
+
+<p align="center">
+  <img src="assets/images/readme/thenextera.png" alt="The Next Era" width="100%">
+</p>
+
 Continufy is the umbrella identity for a family of independent research and engineering projects focused on software understanding, scientific instrumentation, structural analysis, and execution legitimacy.
 
 It does not operate the projects, define their internal authority, or collapse them into one runtime. Each repository remains independently scoped and owns its own artifacts, methods, decisions, and boundaries.
@@ -23,6 +28,12 @@ Trusted Action
 ```
 
 This progression is descriptive rather than executable. No artifact advances automatically, and no repository gains authority over another merely by appearing earlier in the sequence.
+
+
+<p align="center">
+  <img src="assets/images/readme/fromrealitytounderstanding.png" alt="From Reality to Understanding" width="100%">
+</p>
+
 
 ## Projects
 
@@ -97,6 +108,12 @@ Visibility ≠ Legitimacy
 AI output is never executable by itself.
 
 ## Long-Term View
+
+
+<p align="center">
+  <img src="assets/images/readme/continufy.png" alt="Continufy" width="100%">
+</p>
+
 
 Continufy exists to make the relationship between these projects understandable without erasing their independence.
 
