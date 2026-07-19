@@ -8,7 +8,7 @@ This contract coordinates separately authorized, repository-owned work. Continuf
 
 ## Governing dependencies
 
-- [Issue #1](https://github.com/joselunasrt8-creator/Continufy-/issues/1) owns the audit instrument contract and its versioned output semantics.
+- [Issue #1](https://github.com/joselunasrt8-creator/Continufy-/issues/1) owns the [canonical instrument specification](canonical-instrument-specification.md) and its versioned output semantics.
 - [Issue #8](https://github.com/joselunasrt8-creator/Continufy-/issues/8) owns program readiness and the repository-local freeze boundary.
 - [Issue #3](https://github.com/joselunasrt8-creator/Continufy-/issues/3) owns the broader portfolio and artifact map; this execution must not substitute for it.
 - This contract owns only the Reference Execution v1.0 cohort protocol, record requirements, comparison rules, and sealing criteria.
