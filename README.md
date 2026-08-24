@@ -69,6 +69,7 @@ Each project specializes this pattern differently. Continufy provides the umbrel
 
 - [Canonical Continufy Research & Development Instrument Specification](docs/reference-execution/v1.0/canonical-instrument-specification.md) — the immutable, reusable execution contract for Reference Execution v1.0.
 - [Reference Execution v1.0 coordination contract](docs/reference-execution/v1.0/coordination-contract.md) — the bounded protocol for coordinating frozen, repository-owned executions without transferring authority to Continufy.
+- [Continufy SOP-to-Executable Governance Contract v1.0](docs/sop-governance/v1.0/contract.md) — the domain-neutral, non-runtime contract separating SOP instruction, evidence, decision, authority, eligibility, exact execution, proof, outcome, and revision.
 
 ## Boundary Principle
 

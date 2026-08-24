@@ -1,0 +1,155 @@
+{
+  "contract_version": "continufy-sop-governance-v1.0.0",
+  "object_type": "SOP_DEFINITION",
+  "sop_id": "trucking.carrier-qualification",
+  "version": "1.0.0",
+  "definition_digest": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "immutable": true,
+  "owner": {
+    "owner_id": "synthetic-broker-policy-owner",
+    "owner_type": "ORGANIZATION",
+    "accountability": "Own the bounded synthetic carrier-qualification instruction; this ownership is not runtime authority."
+  },
+  "purpose": "Determine whether to propose accepting one identified carrier for one identified load without inferring eligibility from incomplete evidence.",
+  "scope": {
+    "included": ["One carrier and one load offer at a specified qualification time"],
+    "excluded": ["General carrier certification", "Dispatch", "Payment", "SOP self-modification"],
+    "domain_binding": "Synthetic mapping to trucking-software-research qualification-attempt-v1; not a production trucking policy"
+  },
+  "trigger": {
+    "trigger_id": "carrier-load-acceptance-request",
+    "event_type": "CARRIER_LOAD_ACCEPTANCE_REQUESTED",
+    "condition": "An identified carrier is proposed for an identified load."
+  },
+  "input_object_types": [
+    { "type_id": "CARRIER_IDENTITY", "schema_ref": "synthetic://schemas/carrier-identity-v1", "required": true },
+    { "type_id": "LOAD_OFFER", "schema_ref": "synthetic://schemas/load-offer-v1", "required": true }
+  ],
+  "required_evidence": [
+    {
+      "requirement_id": "fmcsa-authoritative-state",
+      "evidence_type": "FMCSA_AUTHORITY_SNAPSHOT",
+      "source_class": "AUTHORITATIVE",
+      "required_at": "VALIDATION",
+      "max_age_seconds": 3600,
+      "provenance_required": true,
+      "contradiction_behavior": "ESCALATE",
+      "missing_behavior": "STOP"
+    },
+    {
+      "requirement_id": "platform-represented-state",
+      "evidence_type": "PLATFORM_QUALIFICATION_SNAPSHOT",
+      "source_class": "REPRESENTED",
+      "required_at": "VALIDATION",
+      "max_age_seconds": 900,
+      "provenance_required": true,
+      "contradiction_behavior": "ESCALATE",
+      "missing_behavior": "ESCALATE"
+    },
+    {
+      "requirement_id": "load-policy-evidence",
+      "evidence_type": "LOAD_SPECIFIC_POLICY_SNAPSHOT",
+      "source_class": "INTERNAL_CONTROL",
+      "required_at": "VALIDATION",
+      "max_age_seconds": 900,
+      "provenance_required": true,
+      "contradiction_behavior": "STOP",
+      "missing_behavior": "STOP"
+    }
+  ],
+  "decision_rules": [
+    {
+      "rule_id": "carrier-load-rule",
+      "rule_version": "1.0.0",
+      "owner_id": "synthetic-broker-rule-owner",
+      "predicate": "Authoritative, represented, and load-specific required predicates are known, current, and satisfied.",
+      "evidence_requirement_refs": ["fmcsa-authoritative-state", "platform-represented-state", "load-policy-evidence"],
+      "when_true": "ALLOW",
+      "when_false": "REJECT",
+      "when_unknown": "ESCALATE"
+    }
+  ],
+  "authority_requirements": [
+    {
+      "authority_requirement_id": "load-acceptance-authority",
+      "authority_type": "BROKER_LOAD_ACCEPTANCE_AUTHORITY",
+      "authority_owner_id": "synthetic-broker-authority-owner",
+      "scope": "One exact carrier/load acceptance object",
+      "action_types": ["ACCEPT_CARRIER_FOR_LOAD"],
+      "registry_binding_required": true,
+      "validity_window_required": true
+    }
+  ],
+  "stop_conditions": [
+    { "condition_id": "required-evidence-not-usable", "predicate": "Required evidence is missing, stale, or fails a hard predicate.", "result": "NULL", "reason_code": "EVIDENCE_NOT_USABLE" },
+    { "condition_id": "legitimacy-failure", "predicate": "Authority, replay, version, precondition, or exact-object validation fails.", "result": "NULL", "reason_code": "LEGITIMACY_CONJUNCTION_FALSE" }
+  ],
+  "escalation_conditions": [
+    {
+      "condition_id": "evidence-conflict-or-unknown-rule",
+      "predicate": "Authoritative and represented state conflict or the applicable rule is unknown.",
+      "result": "ESCALATE",
+      "route_to": "synthetic-carrier-qualification-reviewer",
+      "resolution_evidence_required": true
+    }
+  ],
+  "allowed_actions": [
+    { "action_type": "ACCEPT_CARRIER_FOR_LOAD", "constraint": "Only the exact carrier/load object validated as eligible may be accepted once." }
+  ],
+  "prohibited_actions": [
+    { "action_type": "AUTO_MODIFY_SOP", "constraint": "No execution or outcome may modify this SOP definition." },
+    { "action_type": "GENERAL_CARRIER_APPROVAL", "constraint": "A load-specific action cannot confer general carrier approval." }
+  ],
+  "execution_preconditions": [
+    {
+      "precondition_id": "evidence-current-at-validation",
+      "predicate": "All required evidence is present, provenance-bound, non-contradictory or resolved, and fresh at validation.",
+      "evidence_requirement_refs": ["fmcsa-authoritative-state", "platform-represented-state", "load-policy-evidence"],
+      "failure_result": "NULL"
+    }
+  ],
+  "proof_requirements": [
+    {
+      "proof_requirement_id": "acceptance-receipt",
+      "proof_type": "CARRIER_LOAD_ACCEPTANCE_RECEIPT",
+      "producer_class": "BROKER_PLATFORM",
+      "binds_exact_action": true,
+      "provenance_required": true,
+      "independent_verification_required": true,
+      "retention": "Retain with the execution instance and immutable carrier/load action digest."
+    }
+  ],
+  "outcome_measurements": [
+    {
+      "measurement_id": "economic-consequence",
+      "measurement_version": "1.0.0",
+      "measure": "Observed or estimated economic consequence attributable only to the stated basis.",
+      "unit": "USD",
+      "observation_window": "Through the declared load-resolution window",
+      "missingness_behavior": "RECORD_UNAVAILABLE"
+    }
+  ],
+  "revision_policy": {
+    "automatic_revision_prohibited": true,
+    "review_required": true,
+    "revision_authority_type": "SOP_REVISION_AUTHORITY",
+    "supporting_evidence_required": true,
+    "contrary_evidence_required": true,
+    "new_version_required": true,
+    "effective_date_required": true
+  },
+  "effective_from": "2026-08-23T00:00:00Z",
+  "supersedes": null,
+  "provenance": {
+    "created_by": "continufy-contract-fixture-author",
+    "created_at": "2026-08-23T00:00:00Z",
+    "source_artifacts": [
+      {
+        "artifact_id": "trucking-qualification-attempt-v1",
+        "locator": "https://github.com/joselunasrt8-creator/trucking-software-research/tree/546a797aa5784cc65a2395bb7249f7cfbf2ecc81/instruments/qualification-attempt-v1",
+        "digest": "sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+      }
+    ],
+    "revision_approval": null
+  }
+}

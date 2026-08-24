@@ -1,0 +1,230 @@
+{
+  "contract_version": "continufy-sop-governance-v1.0.0",
+  "object_type": "SOP_EXECUTION_INSTANCE",
+  "execution_id": "synthetic-carrier-load-execution-001",
+  "instance_digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "sop_binding": {
+    "sop_id": "trucking.carrier-qualification",
+    "version": "1.0.0",
+    "definition_digest": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+  },
+  "execution_context": {
+    "context_id": "synthetic-context-001",
+    "context_digest": "sha256:2222222222222222222222222222222222222222222222222222222222222222",
+    "observed_at": "2026-08-23T14:00:00Z",
+    "domain_binding": "Synthetic carrier/load mapping; no real carrier, load, platform, or authority"
+  },
+  "observed_inputs": [
+    {
+      "input_id": "carrier-input-001",
+      "object_type": "CARRIER_IDENTITY",
+      "input_digest": "sha256:3333333333333333333333333333333333333333333333333333333333333333",
+      "observed_at": "2026-08-23T14:00:00Z",
+      "source_ref": "synthetic://carrier/001"
+    },
+    {
+      "input_id": "load-input-001",
+      "object_type": "LOAD_OFFER",
+      "input_digest": "sha256:4444444444444444444444444444444444444444444444444444444444444444",
+      "observed_at": "2026-08-23T14:00:00Z",
+      "source_ref": "synthetic://load/001"
+    }
+  ],
+  "evidence_set": [
+    {
+      "evidence_id": "fmcsa-evidence-001",
+      "evidence_digest": "sha256:5555555555555555555555555555555555555555555555555555555555555555",
+      "requirement_id": "fmcsa-authoritative-state",
+      "source_class": "AUTHORITATIVE",
+      "source_ref": "synthetic://fmcsa/carrier/001",
+      "as_of": "2026-08-23T13:58:00Z",
+      "captured_at": "2026-08-23T14:00:30Z",
+      "freshness_status": "FRESH",
+      "provenance_digest": "sha256:5151515151515151515151515151515151515151515151515151515151515151",
+      "contradiction_refs": []
+    },
+    {
+      "evidence_id": "platform-evidence-001",
+      "evidence_digest": "sha256:6666666666666666666666666666666666666666666666666666666666666666",
+      "requirement_id": "platform-represented-state",
+      "source_class": "REPRESENTED",
+      "source_ref": "synthetic://platform/qualification/001",
+      "as_of": "2026-08-23T13:59:00Z",
+      "captured_at": "2026-08-23T14:01:00Z",
+      "freshness_status": "FRESH",
+      "provenance_digest": "sha256:6161616161616161616161616161616161616161616161616161616161616161",
+      "contradiction_refs": []
+    },
+    {
+      "evidence_id": "load-policy-evidence-001",
+      "evidence_digest": "sha256:7777777777777777777777777777777777777777777777777777777777777777",
+      "requirement_id": "load-policy-evidence",
+      "source_class": "INTERNAL_CONTROL",
+      "source_ref": "synthetic://broker/load-policy/001",
+      "as_of": "2026-08-23T13:59:00Z",
+      "captured_at": "2026-08-23T14:01:30Z",
+      "freshness_status": "FRESH",
+      "provenance_digest": "sha256:7171717171717171717171717171717171717171717171717171717171717171",
+      "contradiction_refs": []
+    }
+  ],
+  "predicate_evaluations": [
+    {
+      "evaluation_id": "carrier-load-rule-evaluation-001",
+      "evaluation_digest": "sha256:8888888888888888888888888888888888888888888888888888888888888888",
+      "rule_id": "carrier-load-rule",
+      "rule_version": "1.0.0",
+      "result": "TRUE",
+      "evidence_refs": ["fmcsa-evidence-001", "platform-evidence-001", "load-policy-evidence-001"],
+      "evaluated_at": "2026-08-23T14:02:00Z",
+      "evaluator": "synthetic-rule-evaluator"
+    }
+  ],
+  "decision_candidate": {
+    "decision_id": "carrier-decision-001",
+    "decision_digest": "sha256:9999999999999999999999999999999999999999999999999999999999999999",
+    "candidate": "ALLOW",
+    "rule_evaluation_refs": ["carrier-load-rule-evaluation-001"],
+    "proposed_action_id": "accept-carrier-load-action-001",
+    "produced_by_layer": "DOMAIN_SYSTEM",
+    "produced_at": "2026-08-23T14:02:05Z"
+  },
+  "authority_binding": {
+    "authority_id": "synthetic-load-authority-001",
+    "authority_digest": "sha256:abababababababababababababababababababababababababababababababab",
+    "requirement_id": "load-acceptance-authority",
+    "authority_type": "BROKER_LOAD_ACCEPTANCE_AUTHORITY",
+    "issuer_id": "synthetic-broker-authority-owner",
+    "subject_id": "synthetic-broker-executor",
+    "scope": "accept-carrier-load-action-001 only",
+    "action_types": ["ACCEPT_CARRIER_FOR_LOAD"],
+    "valid_from": "2026-08-23T13:55:00Z",
+    "valid_until": "2026-08-23T14:30:00Z",
+    "status": "ACTIVE",
+    "registry_id": "synthetic-continuityos-authority-registry",
+    "registry_entry_digest": "sha256:acacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacac",
+    "produced_by_layer": "EXTERNAL_AUTHORITY"
+  },
+  "eligibility_validation": {
+    "validation_id": "eligibility-validation-001",
+    "validation_digest": "sha256:bcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbc",
+    "result": "VALID",
+    "validated_at": "2026-08-23T14:03:00Z",
+    "validator_id": "synthetic-continuityos-validator",
+    "validated_sop_binding": {
+      "sop_id": "trucking.carrier-qualification",
+      "version": "1.0.0",
+      "definition_digest": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+    },
+    "validated_action_digest": "sha256:1111111111111111111111111111111111111111111111111111111111111111",
+    "legitimacy_conjunction": {
+      "continuity_satisfied": true,
+      "continuity_evidence_digest": "sha256:cdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcd",
+      "authority_satisfied": true,
+      "authority_digest": "sha256:abababababababababababababababababababababababababababababababab",
+      "atao_satisfied": true,
+      "atao_digest": "sha256:1414141414141414141414141414141414141414141414141414141414141414",
+      "aeo_satisfied": true,
+      "aeo_digest": "sha256:dfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdf",
+      "evidence_satisfied": true,
+      "predicates_satisfied": true,
+      "preconditions_satisfied": true,
+      "exact_object_bound": true,
+      "replay_absent": true,
+      "sop_version_current": true
+    },
+    "reason_codes": []
+  },
+  "approved_execution_object": {
+    "action_id": "accept-carrier-load-action-001",
+    "action_digest": "sha256:1111111111111111111111111111111111111111111111111111111111111111",
+    "action_type": "ACCEPT_CARRIER_FOR_LOAD",
+    "target_digest": "sha256:1212121212121212121212121212121212121212121212121212121212121212",
+    "parameters_digest": "sha256:1313131313131313131313131313131313131313131313131313131313131313",
+    "idempotency_key": "synthetic-carrier-load-001-once",
+    "sop_id": "trucking.carrier-qualification",
+    "sop_version": "1.0.0"
+  },
+  "execution": {
+    "status": "EXECUTED",
+    "attempted_at": "2026-08-23T14:03:10Z",
+    "executor_id": "synthetic-broker-executor",
+    "executed_object": {
+      "action_id": "accept-carrier-load-action-001",
+      "action_digest": "sha256:1111111111111111111111111111111111111111111111111111111111111111",
+      "action_type": "ACCEPT_CARRIER_FOR_LOAD",
+      "target_digest": "sha256:1212121212121212121212121212121212121212121212121212121212121212",
+      "parameters_digest": "sha256:1313131313131313131313131313131313131313131313131313131313131313",
+      "idempotency_key": "synthetic-carrier-load-001-once",
+      "sop_id": "trucking.carrier-qualification",
+      "sop_version": "1.0.0"
+    },
+    "receipt_digest": "sha256:ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
+  },
+  "proof": {
+    "proof_id": "acceptance-proof-001",
+    "proof_digest": "sha256:eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+    "proof_requirement_id": "acceptance-receipt",
+    "proof_type": "CARRIER_LOAD_ACCEPTANCE_RECEIPT",
+    "action_digest": "sha256:1111111111111111111111111111111111111111111111111111111111111111",
+    "receipt_digest": "sha256:ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+    "observed_at": "2026-08-23T14:03:11Z",
+    "provenance_digest": "sha256:efefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefef",
+    "evidence_refs": ["synthetic-platform-receipt-001"]
+  },
+  "outcome": {
+    "outcome_id": "economic-outcome-001",
+    "outcome_digest": "sha256:dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+    "status": "AVAILABLE",
+    "action_digest": "sha256:1111111111111111111111111111111111111111111111111111111111111111",
+    "proof_id": "acceptance-proof-001",
+    "observed_at": "2026-08-24T14:00:00Z",
+    "measurements": [
+      {
+        "measurement_id": "economic-consequence",
+        "measurement_version": "1.0.0",
+        "value": 450,
+        "unit": "USD",
+        "basis": "Synthetic observed contribution margin; illustrative and not a causal claim.",
+        "uncertainty": "Synthetic fixture with no real-world evidentiary weight.",
+        "provenance_digest": "sha256:d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1"
+      }
+    ],
+    "unavailable_reason": null,
+    "limitations": ["Synthetic fixture", "No production execution occurred"]
+  },
+  "revision_candidate": {
+    "candidate_id": "revision-candidate-001",
+    "candidate_digest": "sha256:c1c1c1c1c1c1c1c1c1c1c1c1c1c1c1c1c1c1c1c1c1c1c1c1c1c1c1c1c1c1c1c1",
+    "source_outcome_id": "economic-outcome-001",
+    "status": "CANDIDATE_ONLY",
+    "reason": "Evaluate whether the evidence freshness window is calibrated; no policy change is approved.",
+    "supporting_evidence_refs": ["economic-outcome-001"],
+    "proposed_change": "Review, without automatically changing, the freshness policy after a real cohort."
+  },
+  "reconciliation": {
+    "reconciliation_id": "reconciliation-001",
+    "reconciliation_digest": "sha256:c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2",
+    "status": "MATCHED",
+    "exact_object_match": true,
+    "replay_status": "NO_REPLAY",
+    "prior_execution_ref": null,
+    "proof_complete": true,
+    "exception_status": "NONE",
+    "reconciled_at": "2026-08-24T14:01:00Z",
+    "reconciler_id": "synthetic-reconciler"
+  },
+  "lifecycle_history": [
+    { "sequence": 1, "state": "BOUND", "recorded_at": "2026-08-23T14:00:00Z", "actor_id": "synthetic-recorder", "artifact_digest": "sha256:0101010101010101010101010101010101010101010101010101010101010101" },
+    { "sequence": 2, "state": "INPUTS_OBSERVED", "recorded_at": "2026-08-23T14:00:10Z", "actor_id": "synthetic-recorder", "artifact_digest": "sha256:0202020202020202020202020202020202020202020202020202020202020202" },
+    { "sequence": 3, "state": "EVIDENCE_ASSEMBLED", "recorded_at": "2026-08-23T14:01:30Z", "actor_id": "synthetic-recorder", "artifact_digest": "sha256:0303030303030303030303030303030303030303030303030303030303030303" },
+    { "sequence": 4, "state": "PREDICATES_EVALUATED", "recorded_at": "2026-08-23T14:02:00Z", "actor_id": "synthetic-rule-evaluator", "artifact_digest": "sha256:0404040404040404040404040404040404040404040404040404040404040404" },
+    { "sequence": 5, "state": "DECISION_PROPOSED", "recorded_at": "2026-08-23T14:02:05Z", "actor_id": "synthetic-domain-system", "artifact_digest": "sha256:0505050505050505050505050505050505050505050505050505050505050505" },
+    { "sequence": 6, "state": "AUTHORITY_BOUND", "recorded_at": "2026-08-23T14:02:30Z", "actor_id": "synthetic-authority-binder", "artifact_digest": "sha256:0606060606060606060606060606060606060606060606060606060606060606" },
+    { "sequence": 7, "state": "ELIGIBILITY_VALIDATED", "recorded_at": "2026-08-23T14:03:00Z", "actor_id": "synthetic-continuityos-validator", "artifact_digest": "sha256:0707070707070707070707070707070707070707070707070707070707070707" },
+    { "sequence": 8, "state": "EXECUTED", "recorded_at": "2026-08-23T14:03:10Z", "actor_id": "synthetic-broker-executor", "artifact_digest": "sha256:0808080808080808080808080808080808080808080808080808080808080808" },
+    { "sequence": 9, "state": "PROOF_RECORDED", "recorded_at": "2026-08-23T14:03:11Z", "actor_id": "synthetic-proof-recorder", "artifact_digest": "sha256:0909090909090909090909090909090909090909090909090909090909090909" },
+    { "sequence": 10, "state": "OUTCOME_RECORDED", "recorded_at": "2026-08-24T14:00:00Z", "actor_id": "synthetic-outcome-observer", "artifact_digest": "sha256:1010101010101010101010101010101010101010101010101010101010101010" },
+    { "sequence": 11, "state": "RECONCILED", "recorded_at": "2026-08-24T14:01:00Z", "actor_id": "synthetic-reconciler", "artifact_digest": "sha256:1110111011101110111011101110111011101110111011101110111011101110" }
+  ]
+}

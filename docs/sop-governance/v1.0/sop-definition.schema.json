@@ -1,0 +1,367 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/joselunasrt8-creator/Continufy-/blob/main/docs/sop-governance/v1.0/sop-definition.schema.json",
+  "title": "Continufy SOP Definition v1.0",
+  "description": "Immutable, domain-neutral SOP definition. This object is instruction and policy, not a runtime execution or authority grant.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "contract_version",
+    "object_type",
+    "sop_id",
+    "version",
+    "definition_digest",
+    "immutable",
+    "owner",
+    "purpose",
+    "scope",
+    "trigger",
+    "input_object_types",
+    "required_evidence",
+    "decision_rules",
+    "authority_requirements",
+    "stop_conditions",
+    "escalation_conditions",
+    "allowed_actions",
+    "prohibited_actions",
+    "execution_preconditions",
+    "proof_requirements",
+    "outcome_measurements",
+    "revision_policy",
+    "effective_from",
+    "supersedes",
+    "provenance"
+  ],
+  "properties": {
+    "contract_version": { "const": "continufy-sop-governance-v1.0.0" },
+    "object_type": { "const": "SOP_DEFINITION" },
+    "sop_id": { "$ref": "#/$defs/id" },
+    "version": { "$ref": "#/$defs/semver" },
+    "definition_digest": { "$ref": "#/$defs/digest" },
+    "immutable": { "const": true },
+    "owner": { "$ref": "#/$defs/owner" },
+    "purpose": { "$ref": "#/$defs/nonEmptyString" },
+    "scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["included", "excluded", "domain_binding"],
+      "properties": {
+        "included": { "$ref": "#/$defs/nonEmptyStringArray" },
+        "excluded": { "$ref": "#/$defs/nonEmptyStringArray" },
+        "domain_binding": { "$ref": "#/$defs/nonEmptyString" }
+      }
+    },
+    "trigger": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["trigger_id", "event_type", "condition"],
+      "properties": {
+        "trigger_id": { "$ref": "#/$defs/id" },
+        "event_type": { "$ref": "#/$defs/id" },
+        "condition": { "$ref": "#/$defs/nonEmptyString" }
+      }
+    },
+    "input_object_types": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/inputObjectType" }
+    },
+    "required_evidence": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/evidenceRequirement" }
+    },
+    "decision_rules": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/decisionRule" }
+    },
+    "authority_requirements": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/authorityRequirement" }
+    },
+    "stop_conditions": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/stopCondition" }
+    },
+    "escalation_conditions": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/escalationCondition" }
+    },
+    "allowed_actions": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/actionPolicy" }
+    },
+    "prohibited_actions": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/actionPolicy" }
+    },
+    "execution_preconditions": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/executionPrecondition" }
+    },
+    "proof_requirements": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/proofRequirement" }
+    },
+    "outcome_measurements": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/outcomeMeasurement" }
+    },
+    "revision_policy": { "$ref": "#/$defs/revisionPolicy" },
+    "effective_from": { "$ref": "#/$defs/dateTime" },
+    "supersedes": {
+      "oneOf": [
+        { "type": "null" },
+        { "$ref": "#/$defs/supersedes" }
+      ]
+    },
+    "provenance": { "$ref": "#/$defs/provenance" }
+  },
+  "allOf": [
+    {
+      "if": { "properties": { "supersedes": { "type": "object" } }, "required": ["supersedes"] },
+      "then": {
+        "properties": {
+          "provenance": {
+            "properties": { "revision_approval": { "$ref": "#/$defs/revisionApproval" } },
+            "required": ["revision_approval"]
+          }
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "nonEmptyString": { "type": "string", "minLength": 1 },
+    "nonEmptyStringArray": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "$ref": "#/$defs/nonEmptyString" }
+    },
+    "id": { "type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$" },
+    "semver": { "type": "string", "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)$" },
+    "digest": { "type": "string", "pattern": "^sha256:[0-9a-f]{64}$" },
+    "dateTime": { "type": "string", "format": "date-time" },
+    "owner": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["owner_id", "owner_type", "accountability"],
+      "properties": {
+        "owner_id": { "$ref": "#/$defs/id" },
+        "owner_type": { "enum": ["PERSON", "ORGANIZATION", "GOVERNANCE_BODY"] },
+        "accountability": { "$ref": "#/$defs/nonEmptyString" }
+      }
+    },
+    "inputObjectType": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type_id", "schema_ref", "required"],
+      "properties": {
+        "type_id": { "$ref": "#/$defs/id" },
+        "schema_ref": { "$ref": "#/$defs/nonEmptyString" },
+        "required": { "type": "boolean" }
+      }
+    },
+    "evidenceRequirement": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "requirement_id",
+        "evidence_type",
+        "source_class",
+        "required_at",
+        "max_age_seconds",
+        "provenance_required",
+        "contradiction_behavior",
+        "missing_behavior"
+      ],
+      "properties": {
+        "requirement_id": { "$ref": "#/$defs/id" },
+        "evidence_type": { "$ref": "#/$defs/id" },
+        "source_class": { "enum": ["AUTHORITATIVE", "REPRESENTED", "CORROBORATING", "STRUCTURAL", "INTERNAL_CONTROL"] },
+        "required_at": { "enum": ["DECISION", "VALIDATION", "EXECUTION", "OUTCOME"] },
+        "max_age_seconds": { "type": ["integer", "null"], "minimum": 0 },
+        "provenance_required": { "const": true },
+        "contradiction_behavior": { "enum": ["STOP", "ESCALATE"] },
+        "missing_behavior": { "enum": ["STOP", "ESCALATE"] }
+      }
+    },
+    "decisionRule": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["rule_id", "rule_version", "owner_id", "predicate", "evidence_requirement_refs", "when_true", "when_false", "when_unknown"],
+      "properties": {
+        "rule_id": { "$ref": "#/$defs/id" },
+        "rule_version": { "$ref": "#/$defs/semver" },
+        "owner_id": { "$ref": "#/$defs/id" },
+        "predicate": { "$ref": "#/$defs/nonEmptyString" },
+        "evidence_requirement_refs": { "$ref": "#/$defs/nonEmptyStringArray" },
+        "when_true": { "enum": ["ALLOW", "DELAY", "REVIEW", "REJECT"] },
+        "when_false": { "enum": ["ALLOW", "DELAY", "REVIEW", "REJECT"] },
+        "when_unknown": { "enum": ["NULL", "ESCALATE"] }
+      }
+    },
+    "authorityRequirement": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["authority_requirement_id", "authority_type", "authority_owner_id", "scope", "action_types", "registry_binding_required", "validity_window_required"],
+      "properties": {
+        "authority_requirement_id": { "$ref": "#/$defs/id" },
+        "authority_type": { "$ref": "#/$defs/id" },
+        "authority_owner_id": { "$ref": "#/$defs/id" },
+        "scope": { "$ref": "#/$defs/nonEmptyString" },
+        "action_types": { "$ref": "#/$defs/nonEmptyStringArray" },
+        "registry_binding_required": { "const": true },
+        "validity_window_required": { "const": true }
+      }
+    },
+    "stopCondition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["condition_id", "predicate", "result", "reason_code"],
+      "properties": {
+        "condition_id": { "$ref": "#/$defs/id" },
+        "predicate": { "$ref": "#/$defs/nonEmptyString" },
+        "result": { "const": "NULL" },
+        "reason_code": { "$ref": "#/$defs/id" }
+      }
+    },
+    "escalationCondition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["condition_id", "predicate", "result", "route_to", "resolution_evidence_required"],
+      "properties": {
+        "condition_id": { "$ref": "#/$defs/id" },
+        "predicate": { "$ref": "#/$defs/nonEmptyString" },
+        "result": { "const": "ESCALATE" },
+        "route_to": { "$ref": "#/$defs/id" },
+        "resolution_evidence_required": { "const": true }
+      }
+    },
+    "actionPolicy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["action_type", "constraint"],
+      "properties": {
+        "action_type": { "$ref": "#/$defs/id" },
+        "constraint": { "$ref": "#/$defs/nonEmptyString" }
+      }
+    },
+    "executionPrecondition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["precondition_id", "predicate", "evidence_requirement_refs", "failure_result"],
+      "properties": {
+        "precondition_id": { "$ref": "#/$defs/id" },
+        "predicate": { "$ref": "#/$defs/nonEmptyString" },
+        "evidence_requirement_refs": { "$ref": "#/$defs/nonEmptyStringArray" },
+        "failure_result": { "enum": ["NULL", "ESCALATE"] }
+      }
+    },
+    "proofRequirement": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["proof_requirement_id", "proof_type", "producer_class", "binds_exact_action", "provenance_required", "independent_verification_required", "retention"],
+      "properties": {
+        "proof_requirement_id": { "$ref": "#/$defs/id" },
+        "proof_type": { "$ref": "#/$defs/id" },
+        "producer_class": { "$ref": "#/$defs/id" },
+        "binds_exact_action": { "const": true },
+        "provenance_required": { "const": true },
+        "independent_verification_required": { "type": "boolean" },
+        "retention": { "$ref": "#/$defs/nonEmptyString" }
+      }
+    },
+    "outcomeMeasurement": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["measurement_id", "measurement_version", "measure", "unit", "observation_window", "missingness_behavior"],
+      "properties": {
+        "measurement_id": { "$ref": "#/$defs/id" },
+        "measurement_version": { "$ref": "#/$defs/semver" },
+        "measure": { "$ref": "#/$defs/nonEmptyString" },
+        "unit": { "type": ["string", "null"] },
+        "observation_window": { "$ref": "#/$defs/nonEmptyString" },
+        "missingness_behavior": { "const": "RECORD_UNAVAILABLE" }
+      }
+    },
+    "revisionPolicy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["automatic_revision_prohibited", "review_required", "revision_authority_type", "supporting_evidence_required", "contrary_evidence_required", "new_version_required", "effective_date_required"],
+      "properties": {
+        "automatic_revision_prohibited": { "const": true },
+        "review_required": { "const": true },
+        "revision_authority_type": { "$ref": "#/$defs/id" },
+        "supporting_evidence_required": { "const": true },
+        "contrary_evidence_required": { "const": true },
+        "new_version_required": { "const": true },
+        "effective_date_required": { "const": true }
+      }
+    },
+    "supersedes": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["sop_id", "version", "definition_digest"],
+      "properties": {
+        "sop_id": { "$ref": "#/$defs/id" },
+        "version": { "$ref": "#/$defs/semver" },
+        "definition_digest": { "$ref": "#/$defs/digest" }
+      }
+    },
+    "artifactRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["artifact_id", "locator", "digest"],
+      "properties": {
+        "artifact_id": { "$ref": "#/$defs/id" },
+        "locator": { "$ref": "#/$defs/nonEmptyString" },
+        "digest": { "$ref": "#/$defs/digest" }
+      }
+    },
+    "revisionApproval": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["approval_id", "reason", "supporting_evidence_refs", "contrary_evidence_refs", "authority_id", "authority_digest", "approved_at", "effective_from"],
+      "properties": {
+        "approval_id": { "$ref": "#/$defs/id" },
+        "reason": { "$ref": "#/$defs/nonEmptyString" },
+        "supporting_evidence_refs": { "$ref": "#/$defs/nonEmptyStringArray" },
+        "contrary_evidence_refs": { "type": "array", "uniqueItems": true, "items": { "$ref": "#/$defs/nonEmptyString" } },
+        "authority_id": { "$ref": "#/$defs/id" },
+        "authority_digest": { "$ref": "#/$defs/digest" },
+        "approved_at": { "$ref": "#/$defs/dateTime" },
+        "effective_from": { "$ref": "#/$defs/dateTime" }
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["created_by", "created_at", "source_artifacts", "revision_approval"],
+      "properties": {
+        "created_by": { "$ref": "#/$defs/id" },
+        "created_at": { "$ref": "#/$defs/dateTime" },
+        "source_artifacts": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/artifactRef" }
+        },
+        "revision_approval": {
+          "oneOf": [
+            { "type": "null" },
+            { "$ref": "#/$defs/revisionApproval" }
+          ]
+        }
+      }
+    }
+  }
+}
