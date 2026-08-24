@@ -1,0 +1,15 @@
+{
+  "fixture_type": "INVALID_MUTATION",
+  "base": "valid-sop-definition.json",
+  "mutations": [
+    {
+      "operation": "append",
+      "path": "/prohibited_actions",
+      "value": {
+        "action_type": "ACCEPT_CARRIER_FOR_LOAD",
+        "constraint": "Synthetic conflict: the same action is both allowed and prohibited."
+      }
+    }
+  ],
+  "expected_error": "ACTION_POLICY_CONFLICT"
+}

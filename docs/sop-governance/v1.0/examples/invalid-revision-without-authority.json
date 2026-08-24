@@ -1,0 +1,18 @@
+{
+  "fixture_type": "INVALID_MUTATION",
+  "base": "valid-sop-definition.json",
+  "mutations": [
+    { "operation": "replace", "path": "/version", "value": "1.1.0" },
+    { "operation": "replace", "path": "/definition_digest", "value": "sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc" },
+    {
+      "operation": "replace",
+      "path": "/supersedes",
+      "value": {
+        "sop_id": "trucking.carrier-qualification",
+        "version": "1.0.0",
+        "definition_digest": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+      }
+    }
+  ],
+  "expected_error": "REVISION_AUTHORITY_REQUIRED"
+}

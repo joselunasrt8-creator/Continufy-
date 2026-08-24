@@ -1,0 +1,14 @@
+{
+  "valid": [
+    { "file": "valid-sop-definition.json", "kind": "SOP_DEFINITION" },
+    { "file": "valid-execution-instance.json", "kind": "SOP_EXECUTION_INSTANCE" }
+  ],
+  "invalid": [
+    { "file": "invalid-sop-definition.json", "kind": "SOP_DEFINITION", "expected_error": "ACTION_POLICY_CONFLICT" },
+    { "file": "invalid-prohibited-authority-inference.json", "kind": "SOP_EXECUTION_INSTANCE", "expected_error": "PROHIBITED_AUTHORITY_INFERENCE" },
+    { "file": "invalid-exact-object-mismatch.json", "kind": "SOP_EXECUTION_INSTANCE", "expected_error": "EXACT_OBJECT_MISMATCH" },
+    { "file": "invalid-replay.json", "kind": "SOP_EXECUTION_INSTANCE", "expected_error": "REPLAY_DETECTED" },
+    { "file": "invalid-sop-version-mismatch.json", "kind": "SOP_EXECUTION_INSTANCE", "expected_error": "SOP_VERSION_MISMATCH" },
+    { "file": "invalid-revision-without-authority.json", "kind": "SOP_DEFINITION", "expected_error": "REVISION_AUTHORITY_REQUIRED" }
+  ]
+}

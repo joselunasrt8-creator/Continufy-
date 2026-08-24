@@ -1,0 +1,8 @@
+{
+  "fixture_type": "INVALID_MUTATION",
+  "base": "valid-execution-instance.json",
+  "mutations": [
+    { "operation": "replace", "path": "/eligibility_validation/validated_sop_binding/version", "value": "0.9.0" }
+  ],
+  "expected_error": "SOP_VERSION_MISMATCH"
+}

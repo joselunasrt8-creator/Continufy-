@@ -1,0 +1,8 @@
+{
+  "fixture_type": "INVALID_MUTATION",
+  "base": "valid-execution-instance.json",
+  "mutations": [
+    { "operation": "replace", "path": "/execution/executed_object/action_digest", "value": "sha256:1414141414141414141414141414141414141414141414141414141414141414" }
+  ],
+  "expected_error": "EXACT_OBJECT_MISMATCH"
+}
