@@ -9,6 +9,52 @@ Continufy is the umbrella identity for a family of independent research and engi
 
 It does not operate the projects, define their internal authority, or collapse them into one runtime. Each repository remains independently scoped and owns its own artifacts, methods, decisions, and boundaries.
 
+## Why Continufy
+
+Organizations define how work should happen. Continufy explores how that work can become representable, governable, executable, measurable, and improvable without confusing a recommendation with authority.
+
+**Intelligence is not enough.**
+
+```text
+Observation ≠ Evidence
+Evidence ≠ Theory
+Reasoning ≠ Permission
+Candidate ≠ Action
+Execution ≠ Successful Outcome
+```
+
+An intelligent system may reason well and still lack sufficient evidence, current state, authority, execution eligibility, or proof that an action produced the intended outcome.
+
+Continufy preserves the boundaries between understanding, legitimacy, execution, and outcomes—so intelligence can participate in work without becoming authority merely because it is intelligent.
+
+A practical operating pattern is:
+
+```text
+Observe
+        ↓
+Represent
+        ↓
+Evaluate
+        ↓
+Validate
+        ↓
+Authorize
+        ↓
+Execute
+        ↓
+Prove
+        ↓
+Measure
+        ↓
+Learn
+        ↓
+Improve
+        ↓
+Repeat
+```
+
+This pattern is descriptive at the umbrella level. Continufy does not itself grant authority, determine execution eligibility, or execute actions. Those responsibilities remain with the repositories, contracts, and authority boundaries that own them.
+
 ## Purpose
 
 Continufy provides a shared home for projects exploring a broader progression:
