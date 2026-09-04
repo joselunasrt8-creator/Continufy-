@@ -119,6 +119,24 @@ Each project specializes this pattern differently. Continufy provides the umbrel
 
 ## Boundary Principle
 
+**Conventions for the ordinary. Governance for the consequential.**
+
+Conventions reduce unnecessary choice by providing stable defaults for ordinary, repeatable behavior. Governance applies when an exact action carries consequence, authority, risk, or execution impact and therefore requires explicit evidence, policy, authorization, or proof before it may proceed.
+
+Convention does not create authority, and governance is not a requirement for every implementation detail. The boundary is contextual: ordinary behavior should remain lightweight, while consequential actions must not inherit legitimacy merely because a framework, model, agent, or operator can produce them.
+
+```text
+Ordinary, repeatable choice
+→ Convention
+→ Proceed under established structure
+
+Consequential action
+→ Governance boundary
+→ Evidence + Authority + Validation
+→ Execution eligibility
+→ VALID | NULL
+```
+
 ```text
 Shared Identity
 ≠
