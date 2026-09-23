@@ -1,166 +1,22 @@
 # Continufy
 
-
 <p align="center">
   <img src="assets/images/readme/thenextera.png" alt="The Next Era" width="100%">
 </p>
 
-Continufy is the umbrella identity for a family of independent research and engineering projects focused on software understanding, scientific instrumentation, structural analysis, and execution legitimacy.
+Continufy is a research-and-engineering program focused on a specific systems problem:
 
-It does not operate the projects, define their internal authority, or collapse them into one runtime. Each repository remains independently scoped and owns its own artifacts, methods, decisions, and boundaries.
+> **How can increasingly capable autonomous systems act without allowing capability, cognition, or model output to become authority by default?**
 
-## Why Continufy
+The emerging commercial direction is **legitimate autonomous execution infrastructure**: software that can represent an exact proposed action, evaluate whether it is currently eligible to execute, enforce that boundary before side effects occur, and preserve proof of what was actually executed.
 
-Organizations define how work should happen. Continufy explores how that work can become representable, governable, executable, measurable, and improvable without confusing a recommendation with authority.
+Continufy is not a single mandatory runtime or fixed pipeline. Its repositories remain independently scoped and own their own artifacts, methods, decisions, and authority boundaries. Some projects are research instruments; some are runtime technologies; some may prove unnecessary to the commercial path. Current cross-repository research is explicitly allowed to produce a sparse, nonlinear, or different topology than the one currently hypothesized.
+
+## Core Thesis
 
 **Intelligence is not enough.**
 
 ```text
-Observation ≠ Evidence
-Evidence ≠ Theory
-Reasoning ≠ Permission
-Candidate ≠ Action
-Execution ≠ Successful Outcome
-```
-
-An intelligent system may reason well and still lack sufficient evidence, current state, authority, execution eligibility, or proof that an action produced the intended outcome.
-
-Continufy preserves the boundaries between understanding, legitimacy, execution, and outcomes—so intelligence can participate in work without becoming authority merely because it is intelligent.
-
-A practical operating pattern is:
-
-```text
-Observe
-        ↓
-Represent
-        ↓
-Evaluate
-        ↓
-Validate
-        ↓
-Authorize
-        ↓
-Execute
-        ↓
-Prove
-        ↓
-Measure
-        ↓
-Learn
-        ↓
-Improve
-        ↓
-Repeat
-```
-
-This pattern is descriptive at the umbrella level. Continufy does not itself grant authority, determine execution eligibility, or execute actions. Those responsibilities remain with the repositories, contracts, and authority boundaries that own them.
-
-## Purpose
-
-Continufy provides a shared home for projects exploring a broader progression:
-
-```text
-Reality
-        ↓
-Understanding
-        ↓
-Evidence
-        ↓
-Theory
-        ↓
-Analysis
-        ↓
-Trusted Action
-```
-
-This progression is descriptive rather than executable. No artifact advances automatically, and no repository gains authority over another merely by appearing earlier in the sequence.
-
-
-<p align="center">
-  <img src="assets/images/readme/fromrealitytounderstanding.png" alt="From Reality to Understanding" width="100%">
-</p>
-
-
-## Projects
-
-- **MindShift** — a non-operational instrument for transforming observations into transferable abstractions.
-- **Research Methodology** — reusable contracts and principles for conducting rigorous research.
-- **Architectural Boundary Research** — empirical investigation of recurring architectural patterns and boundaries.
-- **Structology** — domain-neutral study of objects, relations, boundaries, transitions, contexts, and invariants.
-- **Structural Analysis Foundations** — formal definitions, theory, and canonical research objects for structural analysis.
-- **SYNAPSE** — deterministic structural analysis that transforms topology into reproducible structural evidence.
-- **ContinuityOS** — legitimacy infrastructure for determining whether proposed actions are eligible to execute.
-
-## Shared Direction
-
-The projects share an interest in building reusable instruments rather than only producing isolated outputs.
-
-```text
-Question
-        ↓
-Instrument
-        ↓
-Artifacts
-        ↓
-Evidence or Models
-        ↓
-Review
-        ↓
-Improved Understanding
-```
-
-Each project specializes this pattern differently. Continufy provides the umbrella narrative, while responsibility remains local to each repository.
-
-## Program Coordination
-
-- [Canonical Continufy Research & Development Instrument Specification](docs/reference-execution/v1.0/canonical-instrument-specification.md) — the immutable, reusable execution contract for Reference Execution v1.0.
-- [Reference Execution v1.0 coordination contract](docs/reference-execution/v1.0/coordination-contract.md) — the bounded protocol for coordinating frozen, repository-owned executions without transferring authority to Continufy.
-- [Continufy SOP-to-Executable Governance Contract v1.0](docs/sop-governance/v1.0/contract.md) — the domain-neutral, non-runtime contract separating SOP instruction, evidence, decision, authority, eligibility, exact execution, proof, outcome, and revision.
-
-## Boundary Principle
-
-**Conventions for the ordinary. Governance for the consequential.**
-
-Conventions reduce unnecessary choice by providing stable defaults for ordinary, repeatable behavior. Governance applies when an exact action carries consequence, authority, risk, or execution impact and therefore requires explicit evidence, policy, authorization, or proof before it may proceed.
-
-Convention does not create authority, and governance is not a requirement for every implementation detail. The boundary is contextual: ordinary behavior should remain lightweight, while consequential actions must not inherit legitimacy merely because a framework, model, agent, or operator can produce them.
-
-```text
-Ordinary, repeatable choice
-→ Convention
-→ Proceed under established structure
-
-Consequential action
-→ Governance boundary
-→ Evidence + Authority + Validation
-→ Execution eligibility
-→ VALID | NULL
-```
-
-```text
-Shared Identity
-≠
-Shared Authority
-```
-
-```text
-Artifact Exchange
-≠
-Repository Control
-```
-
-```text
-Umbrella
-≠
-Runtime
-```
-
-Continufy does not authorize research conclusions, formal theory, structural results, or execution. Those determinations remain with the repositories and review boundaries that own them.
-
-## Core Determinations
-
-```text
-Training ≠ Instructions
 Capability ≠ Cognition
 Cognition ≠ Legitimacy
 Proposal ≠ Authority
@@ -172,17 +28,114 @@ Visibility ≠ Legitimacy
 
 AI output is never executable by itself.
 
-## Long-Term View
+A system may reason well and still lack current evidence, legitimate authority, policy validity, replay safety, topology visibility, reconciliation capability, or permission to cause a real-world effect.
 
+Continufy therefore separates:
 
-<p align="center">
-  <img src="assets/images/readme/continufy.png" alt="Continufy" width="100%">
-</p>
+```text
+What the system can propose
+        ↓
+What the system is allowed to do
+        ↓
+What actually executes
+        ↓
+What can be proven afterward
+```
 
+## Commercial / Runtime Direction
 
-Continufy exists to make the relationship between these projects understandable without erasing their independence.
+The current business hypothesis is that autonomous systems need an explicit execution boundary between intent and consequential action.
 
-The umbrella connects:
+```text
+AI / Automation
+        ↓
+Exact Execution Candidate
+        ↓
+Authority + Policy + Current State
+        ↓
+Execution Eligibility
+        ↓
+Governed Execution Boundary
+        ↓
+Proof + Reconciliation
+        ↓
+External System
+```
+
+The commercial thesis is not that every action requires heavy governance. The boundary principle remains:
+
+> **Conventions for the ordinary. Governance for the consequential.**
+
+The first practical wedge is software that can answer:
+
+> **Does this exact proposed state-changing action currently possess everything necessary to execute legitimately, exactly once, with evidence preserved?**
+
+The main runtime work for this thesis currently lives in **ContinuityOS** and the narrower **StateGate** execution-validation surface.
+
+## Minimal Execution Model
+
+The candidate commercial architecture can be reduced to five primitives:
+
+```text
+1. EXECUTION CANDIDATE
+Exact proposed mutation
+        ↓
+2. AUTHORITY
+Who may permit it, with what scope and constraints
+        ↓
+3. ELIGIBILITY
+Evaluate candidate + authority + policy + current state
+        ↓
+4. EXECUTION BOUNDARY
+Consume only legitimate, unused eligibility
+        ↓
+5. PROOF + RECONCILIATION
+Record what executed and whether it matched the authorized object
+```
+
+A central invariant is:
+
+```text
+validated_object == executed_object
+```
+
+A broader target is:
+
+```text
+what was evaluated
+=
+what was authorized
+=
+what was executed
+=
+what the proof identifies
+```
+
+These are engineering targets to be tested, not universal claims.
+
+## Research and Technology Portfolio
+
+The Continufy repositories do not form a mandatory production pipeline. They are better understood as a portfolio of independently testable research and technology components.
+
+### Runtime / commercial candidates
+
+- **ContinuityOS** — legitimacy infrastructure for execution-capable systems; evaluates whether proposed actions are eligible to execute and preserves execution/proof boundaries.
+- **StateGate** — narrow deterministic validation for GitHub repository state transitions; a bounded product wedge and reference execution surface.
+
+### Research and enabling technologies
+
+- **MindShift** — context and cognition-governance research; studies whether structured context improves candidate cognition without creating authority.
+- **Architectural Boundary Research** — empirical investigation environment for testing boundaries, methods, and cross-repository generalization.
+- **Methodology Engineering** — reusable methodology and transformation-contract research.
+- **Structology** — provisional domain-neutral structural model.
+- **Structural Analysis Foundations** — formal mathematical research for structural analysis.
+- **SYNAPSE** — deterministic structural analysis that transforms declared topology into reproducible structural evidence.
+
+No research repository is assumed to be required for a commercial runtime merely because it exists in the ecosystem. Each component must demonstrate incremental value over native controls and simpler alternatives.
+
+## Research Topology Is a Hypothesis
+
+Earlier Continufy work often described a progression such as:
 
 ```text
 Higher-Quality Abstractions
@@ -196,20 +149,90 @@ Deterministic Structural Evidence
 Better-Governed Engineering Systems
 ```
 
-The long-term development path is:
+This is now treated as a **candidate research topology**, not a required architecture.
+
+The evidence is allowed to show that:
+
+- some components are foundational;
+- some are specialized;
+- some are redundant with ordinary engineering methods;
+- some handoffs do not need to exist;
+- some ordering assumptions are wrong;
+- a simpler topology is better.
+
+Successful integration alone is not evidence of unique value.
+
+## Why Continufy
+
+As AI systems become more capable, producing candidate actions becomes cheaper. The harder problem shifts toward controlling consequential effects without destroying useful autonomy.
+
+Continufy explores that boundary through two linked but distinct programs:
+
+```text
+RESEARCH PROGRAM
+What architecture actually works?
+What abstractions transfer?
+Which components add measurable value?
+
+COMMERCIAL PROGRAM
+How can an autonomous system be allowed to act
+only when an exact action is legitimately eligible,
+and how can that fact be proven afterward?
+```
+
+Research informs the runtime. Research does not automatically authorize runtime architecture, product claims, or commercialization.
+
+## Program Coordination
+
+- [Canonical Continufy Research & Development Instrument Specification](docs/reference-execution/v1.0/canonical-instrument-specification.md) — immutable reusable execution contract for Reference Execution v1.0.
+- [Reference Execution v1.0 coordination contract](docs/reference-execution/v1.0/coordination-contract.md) — bounded protocol for coordinating frozen, repository-owned executions without transferring authority to Continufy.
+- [Continufy SOP-to-Executable Governance Contract v1.0](docs/sop-governance/v1.0/contract.md) — domain-neutral, non-runtime contract separating SOP instruction, evidence, decision, authority, eligibility, exact execution, proof, outcome, and revision.
+
+## Boundary Principles
+
+```text
+Shared Identity ≠ Shared Authority
+Artifact Exchange ≠ Repository Control
+Research Evidence ≠ Runtime Authority
+Structural Evidence ≠ Legitimacy
+Proposal ≠ Authority
+Validation ≠ Execution
+```
+
+Continufy itself does not authorize research conclusions, formal theory, structural results, or external actions. Those determinations remain with the repositories, contracts, runtime boundaries, and legitimate authority owners that govern them.
+
+## Current Development Path
+
+The current path is intentionally evidence-gated:
 
 ```text
 Research
         ↓
-Scientific Instruments
+Bounded Experiments
         ↓
-Validated Technologies
+Reference Implementations
         ↓
-Developer Platform
+Real Execution-Surface Evidence
         ↓
-Enterprise Products
+Independent Validation
+        ↓
+Narrow Developer Product
+        ↓
+Broader Platform, only if justified
 ```
 
-This path is aspirational rather than automatic. Each transition depends on evidence, validation, independent review, and demonstrated value.
+The immediate commercial question is not whether Continufy can describe a large architecture. It is whether a minimal execution boundary can reliably prevent illegitimate effects, permit legitimate ones, execute them exactly once, and preserve useful proof with acceptable friction.
 
-The value of the umbrella is coherence, not control.
+If that does not survive real execution, the architecture and business thesis should narrow or change.
+
+## Long-Term View
+
+<p align="center">
+  <img src="assets/images/readme/continufy.png" alt="Continufy" width="100%">
+</p>
+
+The strongest long-term hypothesis is:
+
+> **Continufy could become infrastructure for legitimate autonomous execution.**
+
+That outcome is not assumed. It depends on repeated evidence that the execution-boundary approach provides measurable value beyond native IAM, policy engines, CI, ordinary approval workflows, and simpler conventional controls.
