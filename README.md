@@ -111,6 +111,12 @@ Improved Understanding
 
 Each project specializes this pattern differently. Continufy provides the umbrella narrative, while responsibility remains local to each repository.
 
+## Evidence and Learning
+
+Continufy’s path from instruments to demonstrated value depends on reproducible evidence—not activity counts or unverified claims. The [Evidence and Learning System](docs/evidence-and-learning.md) describes how to define claims, preserve provenance, compare baselines with interventions, record outcomes and failures, and support independent review.
+
+This is a coordination guide, not a shared runtime or authority layer. Each repository owns its data, protocols, artifacts, and conclusions. A research result or model output does not create permission to execute.
+
 ## Program Coordination
 
 - [Canonical Continufy Research & Development Instrument Specification](docs/reference-execution/v1.0/canonical-instrument-specification.md) — the immutable, reusable execution contract for Reference Execution v1.0.
