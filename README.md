@@ -111,6 +111,82 @@ Improved Understanding
 
 Each project specializes this pattern differently. Continufy provides the umbrella narrative, while responsibility remains local to each repository.
 
+## Data and Evidence Learning System (Proposed)
+
+The Data and Evidence Learning System (DELS) is a proposed cross-project learning pattern for turning source material and operational experience into traceable observations, assessable evidence, and carefully reviewed improvements. It makes the existing Observe → Measure → Learn → Improve direction more explicit without creating a new central runtime or changing repository ownership.
+
+DELS is a conceptual coordination model, not a claim that a unified implementation or automated learning pipeline already exists.
+
+### Learning cycle
+
+```text
+Sources and operational activity
+        ↓
+Data intake and source registration
+        ↓
+Observations
+        ↓
+Evidence records
+        ↓
+Measurement and assessment
+        ↓
+Learning candidates
+        ↓
+Independent review and acceptance
+        ↓
+Versioned model, method, or instrument improvement
+        ↺
+Future observation and measurement
+```
+
+Each transition has a distinct meaning:
+
+- **Data** is collected source material or recorded state. It retains source identity, acquisition context, timestamps where available, and relevant schema or version information.
+- **Observation** is a bounded record of what was seen or measured. It should remain distinguishable from interpretation.
+- **Evidence** is an observation or artifact assessed for a stated question or claim. Admissibility, quality, and sufficiency are separate assessments; the presence of data alone does not establish any of them.
+- **Measurement and assessment** apply declared metrics, decision rules, comparison bases, and limitations. Results may be positive, negative, null, unsupported, or indeterminate.
+- **Learning candidate** is a proposed pattern, abstraction, model change, or instrument improvement derived from reviewed evidence. It is a proposal, not an accepted change.
+- **Accepted improvement** is versioned and traceable to its rationale, supporting evidence, review, owner, and affected artifact. It applies only within the scope authorized by that owner.
+
+### Evidence and provenance discipline
+
+Learning quality depends on preserving the chain from source to conclusion. Where applicable, records should identify:
+
+- the originating source and its stable identity or location;
+- acquisition time, observation context, and relevant scope;
+- schema, method, instrument, and model versions used;
+- transformations, exclusions, and normalization steps;
+- links between observations, evidence records, assessments, and claims;
+- uncertainty, limitations, missing information, and contrary evidence;
+- the reviewer and disposition of any proposed change.
+
+Do not silently promote interpretation into observation, correlation into causation, internal conformance into external effectiveness, or an unresolved result into a positive or negative finding. Preserve negative and indeterminate outcomes because they constrain what can legitimately be learned.
+
+### Repository ownership and exchange boundaries
+
+DELS does not centralize the responsibilities of the projects listed above. Each repository remains the authority for its own methods, canonical artifacts, validation rules, and acceptance decisions. Cross-project exchange should use explicit, versioned artifacts with provenance; a downstream project may assess an input but does not thereby gain control over its producer.
+
+- **MindShift** may produce observations, candidate patterns, and abstractions. Those outputs remain candidates until evaluated by the relevant method or owner.
+- **Research Methodology and research instruments** define how questions are investigated, what is measured, and how outcomes and limitations are recorded.
+- **Architectural Boundary Research** owns its empirical executions, evidence, calibration, and transfer determinations.
+- **Structology and Structural Analysis Foundations** own their conceptual and formal definitions and the evidence required to revise them.
+- **SYNAPSE** owns its deterministic structural-analysis methods and outputs.
+- **ContinuityOS** owns legitimacy, authority, execution-eligibility, and execution-boundary determinations. DELS outputs do not grant permission or make an action executable.
+
+### Learning is governed, not automatic
+
+```text
+Observation ≠ Evidence
+Evidence ≠ Interpretation
+Interpretation ≠ Accepted Model
+Learning Candidate ≠ Approved Change
+Validation ≠ Authority
+```
+
+DELS may inform a proposal to revise a model, methodology, instrument, or operational procedure. It does not silently rewrite persistent instructions, policies, authority structures, or execution rules. Any change capable of affecting future execution eligibility must pass the governance and authorization process of the system that owns that boundary.
+
+The intended benefit is cumulative learning with traceable provenance: repeated work can improve future instruments and decisions, while preserving uncertainty, independent review, repository autonomy, and the distinction between understanding and legitimacy.
+
 ## Program Coordination
 
 - [Canonical Continufy Research & Development Instrument Specification](docs/reference-execution/v1.0/canonical-instrument-specification.md) — the immutable, reusable execution contract for Reference Execution v1.0.
